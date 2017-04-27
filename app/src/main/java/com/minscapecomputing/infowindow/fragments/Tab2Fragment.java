@@ -1,6 +1,7 @@
 package com.minscapecomputing.infowindow.fragments;
 
 import com.minscapecomputing.infowindow.R;
+import com.minscapecomputing.infowindow.VideoDialogFragment;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -14,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import uk.co.deanwild.flowtextview.FlowTextView;
 
-public class TabFragment extends Fragment {
+public class Tab2Fragment extends Fragment {
 
     private LinearLayout linearLayout;
     private int position;
@@ -60,16 +61,16 @@ public class TabFragment extends Fragment {
 
         switch (position) {
             case 0:
-                createView(TEMPLATE.IMAGE_TEXT, inflater, container);
+                createView(TEMPLATE.ONLY_IMAGE, inflater, container);
                 break;
             case 1:
                 createView(TEMPLATE.VIDEO_TEXT, inflater, container);
                 break;
             case 2:
-                createView(TEMPLATE.ONLY_IMAGE, inflater, container);
+                createView(TEMPLATE.ONLY_VIDEO, inflater, container);
                 break;
             case 3:
-                createView(TEMPLATE.ONLY_VIDEO, inflater, container);
+                createView(TEMPLATE.IMAGE_TEXT, inflater, container);
                 break;
         }
     }
@@ -81,7 +82,12 @@ public class TabFragment extends Fragment {
             case IMAGE_TEXT: {
                 View view = inflater.inflate(R.layout.image_with_text, container, false);
                 FlowTextView flowTextView = (FlowTextView) view.findViewById(R.id.textView);
-                flowTextView.setText(Html.fromHtml("Our heritage and artisan communities need to be increasingly relevant for modern society. To this end, Caravan works towards a sophisticated language for Indic crafts. Every Caravan product has a handcrafted element from a traditional Indian craft cluster. To achieve precision and consistent quality, which is the hallmark of Caravan, artisan communities are up-skilled to achieve the level of desired sophistication.<br><br>Filigree, the exquisite technique of crafting precious metal wires into ornamental designs can be traced back 5000 years to Mesopotamia.  Owing to the common influence and origin, Greek and Indian filigree till date, display similar patterns and processes. <br><br>This age old, yet contemporary craft involves the silversmith crimping thin strips of fine silver into zig-zag patterns and loops using it to fill up the ground of designs formed by thicker silver strips. These strips and fine silver are then deftly soldered, carefully avoiding the trellis-like Filigree pattern. Traditional motifs of the flora and fauna are popular; however, the versatility of the art is not restricted by tradition. The art has been extensively extended from jewellery to making other ornate objects. Cuttack in Orissa and Karimnagar in Andhra Pradesh are the key centers of Filigree work in India."));
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    flowTextView.setText(Html.fromHtml("Our heritage and artisan communities need to be increasingly relevant for modern society. To this end, Caravan works towards a sophisticated language for Indic crafts. Every Caravan product has a handcrafted element from a traditional Indian craft cluster. To achieve precision and consistent quality, which is the hallmark of Caravan, artisan communities are up-skilled to achieve the level of desired sophistication.<br><br>Filigree, the exquisite technique of crafting precious metal wires into ornamental designs can be traced back 5000 years to Mesopotamia.  Owing to the common influence and origin, Greek and Indian filigree till date, display similar patterns and processes. <br><br>This age old, yet contemporary craft involves the silversmith crimping thin strips of fine silver into zig-zag patterns and loops using it to fill up the ground of designs formed by thicker silver strips. These strips and fine silver are then deftly soldered, carefully avoiding the trellis-like Filigree pattern. Traditional motifs of the flora and fauna are popular; however, the versatility of the art is not restricted by tradition. The art has been extensively extended from jewellery to making other ornate objects. Cuttack in Orissa and Karimnagar in Andhra Pradesh are the key centers of Filigree work in India.", Html.FROM_HTML_MODE_LEGACY));
+                } else {
+                    flowTextView.setText(Html.fromHtml("Our heritage and artisan communities need to be increasingly relevant for modern society. To this end, Caravan works towards a sophisticated language for Indic crafts. Every Caravan product has a handcrafted element from a traditional Indian craft cluster. To achieve precision and consistent quality, which is the hallmark of Caravan, artisan communities are up-skilled to achieve the level of desired sophistication.<br><br>Filigree, the exquisite technique of crafting precious metal wires into ornamental designs can be traced back 5000 years to Mesopotamia.  Owing to the common influence and origin, Greek and Indian filigree till date, display similar patterns and processes. <br><br>This age old, yet contemporary craft involves the silversmith crimping thin strips of fine silver into zig-zag patterns and loops using it to fill up the ground of designs formed by thicker silver strips. These strips and fine silver are then deftly soldered, carefully avoiding the trellis-like Filigree pattern. Traditional motifs of the flora and fauna are popular; however, the versatility of the art is not restricted by tradition. The art has been extensively extended from jewellery to making other ornate objects. Cuttack in Orissa and Karimnagar in Andhra Pradesh are the key centers of Filigree work in India."));
+                }
+
                 try {
                     Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "RobotoRegular.ttf");
                     flowTextView.setTypeface(typeface);
@@ -95,7 +101,11 @@ public class TabFragment extends Fragment {
             case VIDEO_TEXT: {
                 View view = inflater.inflate(R.layout.video_with_text, container, false);
                 FlowTextView flowTextView = (FlowTextView) view.findViewById(R.id.textView);
-                flowTextView.setText(Html.fromHtml("Our heritage and artisan communities need to be increasingly relevant for modern society. To this end, Caravan works towards a sophisticated language for Indic crafts. Every Caravan product has a handcrafted element from a traditional Indian craft cluster. To achieve precision and consistent quality, which is the hallmark of Caravan, artisan communities are up-skilled to achieve the level of desired sophistication.<br><br>Filigree, the exquisite technique of crafting precious metal wires into ornamental designs can be traced back 5000 years to Mesopotamia.  Owing to the common influence and origin, Greek and Indian filigree till date, display similar patterns and processes. <br><br>This age old, yet contemporary craft involves the silversmith crimping thin strips of fine silver into zig-zag patterns and loops using it to fill up the ground of designs formed by thicker silver strips. These strips and fine silver are then deftly soldered, carefully avoiding the trellis-like Filigree pattern. Traditional motifs of the flora and fauna are popular; however, the versatility of the art is not restricted by tradition. The art has been extensively extended from jewellery to making other ornate objects. Cuttack in Orissa and Karimnagar in Andhra Pradesh are the key centers of Filigree work in India."));
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    flowTextView.setText(Html.fromHtml("Our heritage and artisan communities need to be increasingly relevant for modern society. To this end, Caravan works towards a sophisticated language for Indic crafts. Every Caravan product has a handcrafted element from a traditional Indian craft cluster. To achieve precision and consistent quality, which is the hallmark of Caravan, artisan communities are up-skilled to achieve the level of desired sophistication.<br><br>Filigree, the exquisite technique of crafting precious metal wires into ornamental designs can be traced back 5000 years to Mesopotamia.  Owing to the common influence and origin, Greek and Indian filigree till date, display similar patterns and processes. <br><br>This age old, yet contemporary craft involves the silversmith crimping thin strips of fine silver into zig-zag patterns and loops using it to fill up the ground of designs formed by thicker silver strips. These strips and fine silver are then deftly soldered, carefully avoiding the trellis-like Filigree pattern. Traditional motifs of the flora and fauna are popular; however, the versatility of the art is not restricted by tradition. The art has been extensively extended from jewellery to making other ornate objects. Cuttack in Orissa and Karimnagar in Andhra Pradesh are the key centers of Filigree work in India.", Html.FROM_HTML_MODE_LEGACY));
+                } else {
+                    flowTextView.setText(Html.fromHtml("Our heritage and artisan communities need to be increasingly relevant for modern society. To this end, Caravan works towards a sophisticated language for Indic crafts. Every Caravan product has a handcrafted element from a traditional Indian craft cluster. To achieve precision and consistent quality, which is the hallmark of Caravan, artisan communities are up-skilled to achieve the level of desired sophistication.<br><br>Filigree, the exquisite technique of crafting precious metal wires into ornamental designs can be traced back 5000 years to Mesopotamia.  Owing to the common influence and origin, Greek and Indian filigree till date, display similar patterns and processes. <br><br>This age old, yet contemporary craft involves the silversmith crimping thin strips of fine silver into zig-zag patterns and loops using it to fill up the ground of designs formed by thicker silver strips. These strips and fine silver are then deftly soldered, carefully avoiding the trellis-like Filigree pattern. Traditional motifs of the flora and fauna are popular; however, the versatility of the art is not restricted by tradition. The art has been extensively extended from jewellery to making other ornate objects. Cuttack in Orissa and Karimnagar in Andhra Pradesh are the key centers of Filigree work in India."));
+                }
                 try {
                     Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "RobotoRegular.ttf");
                     flowTextView.setTypeface(typeface);
@@ -103,6 +113,16 @@ public class TabFragment extends Fragment {
                     e.printStackTrace();
                 }
                 flowTextView.setTextSize(16f);
+                view.findViewById(R.id.playButton).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("VideoUrl", "https://d2w4f1uwlq2g3.cloudfront.net/live/tenant_cdn_content/S1601001/prod_catalog/video/ethnic_wear_500.mp4");
+                        bundle.putString("page", "home");
+                        VideoDialogFragment videoDialogFragment = VideoDialogFragment.newInstance(bundle);
+                        videoDialogFragment.show(getChildFragmentManager(), "Video View Fragment");
+                    }
+                });
                 linearLayout.addView(view);
                 break;
             }
@@ -113,6 +133,16 @@ public class TabFragment extends Fragment {
             }
             case ONLY_VIDEO: {
                 View view = inflater.inflate(R.layout.video_only, container, false);
+                view.findViewById(R.id.playButton).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("VideoUrl", "https://d2w4f1uwlq2g3.cloudfront.net/live/tenant_cdn_content/S1601001/prod_catalog/video/ethnic_wear_500.mp4");
+                        bundle.putString("page", "home");
+                        VideoDialogFragment videoDialogFragment = VideoDialogFragment.newInstance(bundle);
+                        videoDialogFragment.show(getChildFragmentManager(), "Video View Fragment");
+                    }
+                });
                 linearLayout.addView(view);
                 break;
             }

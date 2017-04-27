@@ -1,9 +1,4 @@
-package com.minscapecomputing.aisle360.fragment.dialog;
-
-import com.minscapecomputing.aisle360.R;
-import com.minscapecomputing.aisle360.components.FullscreenVideoLayout;
-import com.minscapecomputing.aisle360.util.LoginParam;
-import com.minscapecomputing.aisle360.util.OlabiConstant;
+package com.minscapecomputing.infowindow;
 
 import java.io.IOException;
 
@@ -22,8 +17,6 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
-import static com.minscapecomputing.aisle360.R.id.videoSurface;
 
 /**
  * Created by Arun on 03-10-2016.
@@ -102,7 +95,7 @@ public class VideoDialogFragment extends android.support.v4.app.DialogFragment {
                         try {
                             dismiss();
                         } catch (Exception e) {
-                            if (OlabiConstant.IS_DEBUGGABLE) e.printStackTrace();
+                            e.printStackTrace();
                         }
                     }
                 });
@@ -114,24 +107,24 @@ public class VideoDialogFragment extends android.support.v4.app.DialogFragment {
                             dismiss();
                             showFailureAlert(getString(R.string.err_video));
                         } catch (Exception e) {
-                            if (OlabiConstant.IS_DEBUGGABLE) e.printStackTrace();
+                            e.printStackTrace();
                         }
                         return false;
                     }
                 });
             }
         } catch (IllegalArgumentException e) {
-            if (OlabiConstant.IS_DEBUGGABLE) e.printStackTrace();
+            e.printStackTrace();
         } catch (SecurityException e) {
-            if (OlabiConstant.IS_DEBUGGABLE) e.printStackTrace();
+            e.printStackTrace();
         } catch (IllegalStateException e) {
-            if (OlabiConstant.IS_DEBUGGABLE) e.printStackTrace();
+            e.printStackTrace();
         } catch (IOException e) {
-            if (OlabiConstant.IS_DEBUGGABLE) e.printStackTrace();
+            e.printStackTrace();
         } catch (NullPointerException n) {
             n.printStackTrace();
         } catch (Exception e) {
-            if (OlabiConstant.IS_DEBUGGABLE) e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -143,7 +136,7 @@ public class VideoDialogFragment extends android.support.v4.app.DialogFragment {
                 try {
                     dismiss();
                 } catch (Exception e) {
-                    if (OlabiConstant.IS_DEBUGGABLE) e.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         });
@@ -159,9 +152,9 @@ public class VideoDialogFragment extends android.support.v4.app.DialogFragment {
     private void init(View rootView) {
 
         close = (ImageView) rootView.findViewById(R.id.close);
-        filler = (View) rootView.findViewById(R.id.filler);
+        filler = rootView.findViewById(R.id.filler);
         video_frame = (RelativeLayout) rootView.findViewById(R.id.video_container);
-        videoView = (FullscreenVideoLayout) rootView.findViewById(videoSurface);
+        videoView = (FullscreenVideoLayout) rootView.findViewById(R.id.videoSurface);
         videoView.setKeepScreenOn(true);
         videoView.setActivity(activity);
 
@@ -235,7 +228,7 @@ public class VideoDialogFragment extends android.support.v4.app.DialogFragment {
             window.setLayout(dialogWidth, dialogHeight);
             window.setGravity(Gravity.CENTER);
         } catch (Exception e) {
-            if (OlabiConstant.IS_DEBUGGABLE) e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -273,7 +266,7 @@ public class VideoDialogFragment extends android.support.v4.app.DialogFragment {
             window.setLayout(imageWidth, imageHeight);
             window.setGravity(Gravity.TOP | Gravity.LEFT);
         } catch (Exception e) {
-            if (OlabiConstant.IS_DEBUGGABLE) e.printStackTrace();
+            e.printStackTrace();
         }
     }
 

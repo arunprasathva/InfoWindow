@@ -1,28 +1,30 @@
 package com.minscapecomputing.infowindow;
 
-import com.viewpagerindicator.TabPageIndicator;
+import com.minscapecomputing.infowindow.fragments.ArticleFragment;
 
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
-import android.view.Gravity;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
+import android.widget.FrameLayout;
 
-public class InfoWindowFragment extends android.support.v4.app.DialogFragment {
+public class InfoWindowFragment extends Fragment {
 
     private Activity activity;
     private ArrayList<String> list;
 
     private Bundle bundle;
-    private ViewPager viewPager;
-    private TabPageIndicator indicator;
+    private FrameLayout container;
+    private TabLayout tabLayout;
+
+    private OnInfoWindowClosed onInfoWindowClosed;
 
     public InfoWindowFragment() {
     }
@@ -36,7 +38,6 @@ public class InfoWindowFragment extends android.support.v4.app.DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(InfoWindowFragment.STYLE_NO_TITLE, R.style.AppDialogTheme);
         activity = getActivity();
 
         if (getArguments() != null) {
@@ -64,47 +65,74 @@ public class InfoWindowFragment extends android.support.v4.app.DialogFragment {
         view.findViewById(R.id.close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dismiss();
+                activity.onBackPressed();
             }
         });
     }
 
     private void populateData() {
 
+        tabLayout.addTab(tabLayout.newTab().setText("FILIGREE"));
+        tabLayout.addTab(tabLayout.newTab().setText("MANGALAGIRI"));
+        tabLayout.addTab(tabLayout.newTab().setText("JAMDANI"));
+        tabLayout.addTab(tabLayout.newTab().setText("BANDHANI"));
 
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+
+        ArticleFragment articleFragment = ArticleFragment.newInstance(bundle);
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, articleFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commitAllowingStateLoss();
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                changeTab(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+
+    private void changeTab(int tabPosition) {
+
+        bundle.putInt("tabPosition", tabPosition);
+        ArticleFragment articleFragment = ArticleFragment.newInstance(bundle);
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, articleFragment);
+        fragmentTransaction.commitAllowingStateLoss();
     }
 
     private void init(View rootView) {
 
-        viewPager = (ViewPager) rootView.findViewById(R.id.pager);
-        indicator = (TabPageIndicator) rootView.findViewById(R.id.indicator);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // safety check
-        if (getDialog() == null)
-            return;
-
-//        LoginParam loginParam = new LoginParam();
-//        int width = loginParam.getScreenWidth(activity);
-        int dialogWidth = ViewGroup.LayoutParams.WRAP_CONTENT;
-        int dialogHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
-
-        Window window = getDialog().getWindow();
-        window.setLayout(dialogWidth, dialogHeight);
-        window.setGravity(Gravity.TOP);
-
-        WindowManager.LayoutParams params = window.getAttributes();
-        params.x = 0;
-        params.y = -100;
-        window.setAttributes(params);
+        container = (FrameLayout) rootView.findViewById(R.id.container);
+        tabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
     }
 
     private String optString(Bundle b, String key) {
         if (b.containsKey(key)) return b.getString(key);
         return "";
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (onInfoWindowClosed != null) onInfoWindowClosed.closed();
+    }
+
+    public void setOnInfoWindowClosed(OnInfoWindowClosed onInfoWindowClosed) {
+        this.onInfoWindowClosed = onInfoWindowClosed;
+    }
+
+    public interface OnInfoWindowClosed {
+        void closed();
     }
 }

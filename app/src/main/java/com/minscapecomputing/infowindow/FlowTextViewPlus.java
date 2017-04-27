@@ -5,25 +5,24 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.TextView;
-
+import uk.co.deanwild.flowtextview.FlowTextView;
 
 /**
  * Created by Arun on 12/9/2016.
  */
-public class TextViewPlus extends TextView {
+public class FlowTextViewPlus extends FlowTextView {
     private static final String TAG = "TextView";
 
-    public TextViewPlus(Context context) {
+    public FlowTextViewPlus(Context context) {
         super(context);
     }
 
-    public TextViewPlus(Context context, AttributeSet attrs) {
+    public FlowTextViewPlus(Context context, AttributeSet attrs) {
         super(context, attrs);
         setCustomFont(context, attrs);
     }
 
-    public TextViewPlus(Context context, AttributeSet attrs, int defStyle) {
+    public FlowTextViewPlus(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         setCustomFont(context, attrs);
     }

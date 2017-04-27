@@ -18,14 +18,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/filler"
         android:layout_centerInParent="true"
-        android:background="@color/olabiBlack">
+        android:background="#000000">
 
-        <com.minscapecomputing.aisle360.components.FullscreenVideoLayout
+        <com.minscapecomputing.infowindow.FullscreenVideoLayout
             android:id="@+id/videoSurface"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:background="@color/olabiBlack" />
+            android:background="#000000" />
 
     </FrameLayout>
 
@@ -36,7 +36,6 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/filler"
         android:layout_margin="5dp"
-        android:contentDescription="@string/icon"
         android:src="@drawable/ic_close" />
 
 </RelativeLayout>

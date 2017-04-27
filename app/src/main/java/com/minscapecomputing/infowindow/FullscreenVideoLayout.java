@@ -1,10 +1,8 @@
-package com.minscapecomputing.aisle360.components;
+package com.minscapecomputing.infowindow;
 
 /**
  * Created by Arun on 03-10-2016.
  */
-
-import com.minscapecomputing.aisle360.R;
 
 import java.util.Locale;
 

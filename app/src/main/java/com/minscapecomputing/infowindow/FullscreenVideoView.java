@@ -1,10 +1,8 @@
-package com.minscapecomputing.aisle360.components;
+package com.minscapecomputing.infowindow;
 
 /**
  * Created by Arun on 03-10-2016.
  */
-
-import com.minscapecomputing.aisle360.util.OlabiConstant;
 
 import java.io.IOException;
 
@@ -458,12 +456,12 @@ public class FullscreenVideoView extends RelativeLayout implements SurfaceHolder
 
                     parentView.removeView(FullscreenVideoView.this);
                 } else
-                    if (OlabiConstant.IS_DEBUGGABLE) Log.e(TAG, "Parent View is not a ViewGroup");
+                    Log.e(TAG, "Parent View is not a ViewGroup");
 
                 if (v instanceof ViewGroup) {
                     ((ViewGroup) v).addView(FullscreenVideoView.this);
                 } else
-                    if (OlabiConstant.IS_DEBUGGABLE) Log.e(TAG, "RootView is not a ViewGroup");
+                    Log.e(TAG, "RootView is not a ViewGroup");
             } else {
                 if (activity != null)
                     activity.setRequestedOrientation(initialConfigOrientation);

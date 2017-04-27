@@ -3,9 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/InfoWindow.iml" filepath="$PROJECT_DIR$/InfoWindow.iml" />
-      <module fileurl="file://$PROJECT_DIR$/InfoWindow.iml" filepath="$PROJECT_DIR$/InfoWindow.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/viewPagerLineIndicator/viewPagerLineIndicator.iml" filepath="$PROJECT_DIR$/viewPagerLineIndicator/viewPagerLineIndicator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewPagerLineIndicatorr/viewPagerLineIndicatorr.iml" filepath="$PROJECT_DIR$/viewPagerLineIndicatorr/viewPagerLineIndicatorr.iml" />
     </modules>
   </component>
 </project>

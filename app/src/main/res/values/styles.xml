@@ -30,5 +30,18 @@
         <item name="android:windowSoftInputMode">stateHidden|adjustResize</item>
     </style>
 
+    <style name="tab_bar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="tabPaddingStart">10dp</item>
+        <item name="tabPaddingEnd">10dp</item>
+    </style>
+
+    <style name="QText" parent="@android:style/TextAppearance.Large">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
 </resources>

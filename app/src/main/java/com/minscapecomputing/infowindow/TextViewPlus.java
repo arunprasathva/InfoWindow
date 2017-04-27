@@ -1,7 +1,4 @@
-package com.minscapecomputing.aisle360.components;
-
-import com.minscapecomputing.aisle360.R;
-import com.minscapecomputing.aisle360.util.OlabiConstant;
+package com.minscapecomputing.infowindow;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -43,7 +40,7 @@ public class TextViewPlus extends TextView {
         try {
             typeface = Typeface.createFromAsset(ctx.getAssets(), asset);
         } catch (Exception e) {
-            if (OlabiConstant.IS_DEBUGGABLE) Log.e(TAG, "Unable to load typeface: " + e.getMessage());
+            Log.e(TAG, "Unable to load typeface: " + e.getMessage());
             return false;
         }
 
