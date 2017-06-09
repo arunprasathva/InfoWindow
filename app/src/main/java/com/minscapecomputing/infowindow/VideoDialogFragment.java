@@ -21,7 +21,7 @@ import android.widget.RelativeLayout;
 /**
  * Created by Arun on 03-10-2016.
  */
-public class VideoDialogFragment extends android.support.v4.app.DialogFragment {//TESTING MIRROR CLONING
+public class VideoDialogFragment extends android.support.v4.app.DialogFragment {//TESTING MIRROR
 
     private FullscreenVideoLayout videoView;
     private boolean isFullScreen = false;
