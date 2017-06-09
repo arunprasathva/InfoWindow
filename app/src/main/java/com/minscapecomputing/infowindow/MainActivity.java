@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.info).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 container.setVisibility(View.VISIBLE);
                 ArrayList<String> list = new ArrayList<>();
                 Bundle bundle = new Bundle();

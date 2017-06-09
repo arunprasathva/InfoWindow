@@ -12,6 +12,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import uk.co.deanwild.flowtextview.FlowTextView;
 
@@ -42,7 +43,13 @@ public class Tab2Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.tab_fragment, container, false);
+        View view;
+
+        if (position == 2 || position == 3) {
+            view = inflater.inflate(R.layout.tab_fragment, container, false);
+        } else {
+            view = inflater.inflate(R.layout.tab_fragment, container, false);
+        }
 
         init(view);
         setContent(container);
@@ -95,6 +102,15 @@ public class Tab2Fragment extends Fragment {
                     e.printStackTrace();
                 }
                 flowTextView.setTextSize(16f);
+                view.findViewById(R.id.expand).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("image", R.drawable.banner1);
+                        ImageViewFragment imageViewFragment = ImageViewFragment.newInstance(bundle);
+                        imageViewFragment.show(getChildFragmentManager(), "Image View Fragment");
+                    }
+                });
                 linearLayout.addView(view);
                 break;
             }
@@ -127,8 +143,9 @@ public class Tab2Fragment extends Fragment {
                 break;
             }
             case ONLY_IMAGE: {
-                View view = inflater.inflate(R.layout.image_only, container, false);
-                linearLayout.addView(view);
+
+                linearLayout.addView(getOnlyImageView(inflater, container, R.drawable.banner3));
+                linearLayout.addView(getOnlyImageView(inflater, container, R.drawable.banner6));
                 break;
             }
             case ONLY_VIDEO: {
@@ -147,5 +164,22 @@ public class Tab2Fragment extends Fragment {
                 break;
             }
         }
+    }
+
+    private View getOnlyImageView(LayoutInflater inflater, ViewGroup container, final int resourceID) {
+
+        View view = inflater.inflate(R.layout.image_only, container, false);
+        ((ImageView)view.findViewById(R.id.imageView)).setImageResource(resourceID);
+        view.findViewById(R.id.expand).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("image", resourceID);
+                ImageViewFragment imageViewFragment = ImageViewFragment.newInstance(bundle);
+                imageViewFragment.show(getChildFragmentManager(), "Image View Fragment");
+            }
+        });
+
+        return view;
     }
 }

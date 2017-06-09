@@ -24,7 +24,7 @@ public class LoginParam {
         try {
             DisplayMetrics dm = new DisplayMetrics();
             context.getWindowManager().getDefaultDisplay().getMetrics(dm);
-            return  dm.widthPixels;
+            return dm.widthPixels;
         } catch (Exception e) {
             e.printStackTrace();
         }

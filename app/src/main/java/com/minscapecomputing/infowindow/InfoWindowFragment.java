@@ -72,10 +72,10 @@ public class InfoWindowFragment extends Fragment {
 
     private void populateData() {
 
-        tabLayout.addTab(tabLayout.newTab().setText("FILIGREE"));
-        tabLayout.addTab(tabLayout.newTab().setText("MANGALAGIRI"));
-        tabLayout.addTab(tabLayout.newTab().setText("JAMDANI"));
-        tabLayout.addTab(tabLayout.newTab().setText("BANDHANI"));
+        tabLayout.addTab(tabLayout.newTab().setText("TECH SPECS"));
+        tabLayout.addTab(tabLayout.newTab().setText("REVIEWS"));
+        tabLayout.addTab(tabLayout.newTab().setText("SERVICES"));
+        tabLayout.addTab(tabLayout.newTab().setText("NEWS"));
 
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 

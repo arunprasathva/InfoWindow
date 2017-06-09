@@ -16,18 +16,19 @@
         android:id="@+id/info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/info"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:layout_marginBottom="100dp"
         android:layout_marginLeft="360dp"
-        android:layout_marginBottom="110dp"/>
+        android:padding="10dp"
+        android:src="@drawable/info"/>
 
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="600dp"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="85dp"
         android:visibility="visible"/>
 
 </RelativeLayout>

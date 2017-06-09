@@ -21,7 +21,7 @@ import android.widget.RelativeLayout;
 /**
  * Created by Arun on 03-10-2016.
  */
-public class VideoDialogFragment extends android.support.v4.app.DialogFragment {
+public class VideoDialogFragment extends android.support.v4.app.DialogFragment {//TESTING MIRROR CLONE
 
     private FullscreenVideoLayout videoView;
     private boolean isFullScreen = false;
@@ -86,6 +86,7 @@ public class VideoDialogFragment extends android.support.v4.app.DialogFragment {
                     @Override
                     public void onPrepared(MediaPlayer mediaPlayer) {
                         videoView.start();
+                        close.setVisibility(View.VISIBLE);
                     }
                 });
 
@@ -198,7 +199,6 @@ public class VideoDialogFragment extends android.support.v4.app.DialogFragment {
             filler.setVisibility(View.VISIBLE);
         }
     }
-
 
     @Override
     public void onStart() {
