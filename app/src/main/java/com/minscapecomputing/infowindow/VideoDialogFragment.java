@@ -29,7 +29,7 @@ public class VideoDialogFragment extends android.support.v4.app.DialogFragment {
     private int dialogWidth;
     private int dialogHeight;
     private int imageWidth;
-    private int imageHeight;
+    private int imageHeight;  //testing clone
     private String page;
     private Activity activity;
     private Bundle bundle;
